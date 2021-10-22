@@ -1,4 +1,4 @@
-package com.bernardo.helpdesk.domain.enums;
+package com.valdir.helpdesk.domain.enums;
 
 public enum Perfil {
 

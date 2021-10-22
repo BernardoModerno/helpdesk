@@ -1,4 +1,4 @@
-package com.bernardo.helpdesk.domain;
+package com.valdir.helpdesk.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -10,9 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.bernardo.helpdesk.domain.enums.Prioridade;
-import com.bernardo.helpdesk.domain.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.valdir.helpdesk.domain.enums.Prioridade;
+import com.valdir.helpdesk.domain.enums.Status;
 
 @Entity
 public class Chamado implements Serializable {
@@ -21,13 +21,13 @@ public class Chamado implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
+	
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataAbertura = LocalDate.now();
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataFechamento;
-
-
+	
+	
 	private Prioridade prioridade;
 	private Status status;
 	private String titulo;
@@ -36,7 +36,7 @@ public class Chamado implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "tecnico_id")
 	private Tecnico tecnico;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
